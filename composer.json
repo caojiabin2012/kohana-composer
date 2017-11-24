@@ -1,0 +1,32 @@
+{
+	"name"       :"caojiabin2012/kohana-composer",
+	"type"       :"project",
+	"description":"Kohana Framework project, installable through composer",
+	"keywords"   :["kohana", "core", "orm", "auth", "database", "cache", "codebench", "image", "minion", "unittest", "userguide"],
+	"homepage"   :"https://github.com/caojiabin2012/kohana-composer",
+	"license"    :"MIT",
+	"authors"    :[
+		{
+			"name"    :"jiabin",
+			"homepage": "https://github.com/caojiabin2012"
+		}
+	,
+	"require": {
+		"kohana/core"       : "3.3.*",
+		"kohana/database"   : "3.3.*",
+		"kohana/orm"        : "3.3.*",
+		"kohana/cache"      : "3.3.*",
+		"kohana/codebench"  : "3.3.*",
+		"kohana/image"      : "3.3.*",
+		"kohana/minion"     : "3.3.*",
+		"kohana/unittest"   : "3.3.*",
+		"kohana/userguide"  : "3.3.*",
+		"overtrue/pinyin"   : "~3.0",
+		"overtrue/wechat"   : "~3.1",
+		"overtrue/easy-sms" : "^0.0.10",
+		"smarty/smarty"     : "^3.1"
+	},
+	"config": {
+		"vendor-dir": "vendor"
+	}
+}
