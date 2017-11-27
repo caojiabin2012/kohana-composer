@@ -18,18 +18,21 @@ defined('SYSPATH') or die('No direct script access.');
  *
  */
 
-class Template{
+class Template
+{
     protected $smarty;
     protected $data = array();
     protected $file = NULL;
     protected static $global_data = array();
     protected static $file_subfix = '.tpl';
 
-    public static function factory($file='',$data = array()) {
-        return new Template($file,$data);
+    public static function factory($file='', $data = array()) 
+    {
+        return new Template($file, $data);
     }
 
-    public function __construct($file = NULL, array $data = NULL) {
+    public function __construct($file = NULL, array $data = NULL) 
+    {
         $this->smarty = self::smarty();
         if($file){
             $this->set_filename($file);
@@ -40,7 +43,8 @@ class Template{
 
     }
 
-    public static function smarty(){
+    public static function smarty()
+    {
         $config = Kohana::$config->load('smarty')->get('default');
         if(!isset($config['template_dir']) || !isset($config['compile_dir']) || !isset($config['cache_dir']) ) {
             echo 'smarty config is null.';
@@ -67,12 +71,14 @@ class Template{
         return $obj;
     }
 
-    public function set_filename($file) {
+    public function set_filename($file) 
+    {
         $this->file = $file;
         return $this;
     }
 
-    public function set($key, $value = NULL) {
+    public function set($key, $value = NULL) 
+    {
         if (is_array($key)) {
             foreach ($key as $name => $value) {
                 $this->data[$name] = $value;
@@ -83,17 +89,18 @@ class Template{
         return $this;
     }
 
-
-    public function bind($key='', & $value = NULL) {
+    public function bind($key='', & $value = NULL) 
+    {
         $this->data[$key] = &$value;
     }
 
-    public static function bind_global($key, & $value) {
+    public static function bind_global($key, & $value) 
+    {
         self::$global_data[$key] =& $value;
     }
 
-
-    public function render($file = NULL) {
+    public function render($file = NULL) 
+    {
         if ($file !== NULL) {
             $this->set_filename($file);
         }
@@ -104,9 +111,8 @@ class Template{
         return self::capture($this->file, $array);
     }
 
-
-
-    public function & __get($key) {
+    public function & __get($key) 
+    {
         if (array_key_exists($key, $this->data)) {
             return $this->data[$key];
         }
@@ -119,23 +125,26 @@ class Template{
         }
     }
 
-
-    public function __isset($key) {
+    public function __isset($key)
+    {
         return (isset($this->_data[$key]) OR isset(self::$global_data[$key]));
     }
 
 
-    public function __set($key, $value) {
+    public function __set($key, $value) 
+    {
         $this->set($key, $value);
     }
 
 
-    public function __unset($key) {
+    public function __unset($key)
+    {
         unset($this->data[$key] , self::$global_data[$key]);
         return $this;
     }
 
-    public function __toString() {
+    public function __toString() 
+    {
         try {
             return $this->render();
         }
@@ -153,7 +162,8 @@ class Template{
 
 
 
-    protected static function capture($tf, array $data = NULL) {
+    protected static function capture($tf, array $data = NULL) 
+    {
         // Capture the view output
         ob_start();
         try {
@@ -177,7 +187,8 @@ class Template{
 
 
     //当时直接打印
-    public function display($file = NULL,array $array = NULL){
+    public function display($file = NULL,array $array = NULL)
+    {
         if($array){
             $this->set($array);
         }
@@ -186,14 +197,16 @@ class Template{
 
 
     //打印并结束
-    public function response($file = NULL,array $array = NULL){
+    public function response($file = NULL,array $array = NULL)
+    {
         $this->display($file,$array);
         exit;
     }
 
 
 
-    public function message($data=array()) {
+    public function message($data=array()) 
+    {
         if (!isset($data['title'])) {
             $data['title'] = "信息提示";
         }
