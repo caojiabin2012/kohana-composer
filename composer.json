@@ -10,7 +10,7 @@
 			"name"    :"jiabin",
 			"homepage": "https://github.com/caojiabin2012"
 		}
-	,
+	],
 	"require": {
 		"kohana/core"       : "3.3.*",
 		"kohana/database"   : "3.3.*",
