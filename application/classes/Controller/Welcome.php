@@ -2,13 +2,11 @@
 
 class Controller_Welcome extends Controller 
 {
-
-	public function action_index()
-	{
+    public function action_index()
+    {
         Template::factory('Welcome/Index', array(
-                'pinyin' => "hello world" 
-                )
+            'pinyin' => "hello world" 
+        )
         )->response();
-	}
-
+    }
 } // End Welcome
