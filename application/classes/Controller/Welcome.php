@@ -6,7 +6,7 @@ class Controller_Welcome extends Controller
     {
         Template::factory('Welcome/Index', array(
             'pinyin' => "hello world" 
-        )
+            )
         )->response();
     }
 } // End Welcome
