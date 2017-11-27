@@ -9,7 +9,6 @@ defined('SYSPATH') or die('No direct script access.');
  * Template::factory('Admin/Permission')->response(array('title'=>'例子', 'content'=>'内容'));
  * 增加dislplay方法: 直接输出渲染后的页面代码,不需要kohana的response
  * Template::factory('Admin/Permission')->display(array('title'=>'例子', 'content'=>'内容'));
- * 2015-12-18
  * 增加message方法: 用于信息提示页面的输出
  * Template::factory()->message(array('type'=>'error','title'=>'标题','message'=>'提示内容……', 'back'=>true,'redirect'=>'http://www.baidu.com','redirect_time'=>5));
  * type提示类型:error 错误,success 成功,notice 提醒,info 普通信息.
