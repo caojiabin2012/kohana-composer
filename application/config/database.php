@@ -4,7 +4,7 @@ return array(
 	'default' => array(
 		'type'			=> 'PDO',
 		'connection'	=> array(
-            'dsn'	=> 'mysql:host=127.0.0.1;dbname=jiabin',
+            'dsn'       => 'mysql:host=127.0.0.1;dbname=jiabin',
 			'database'	=> 'jiabin',
 			'username'	=> 'root',
 			'password'	=> 'root',
